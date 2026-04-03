@@ -1,5 +1,7 @@
 # 🔯 DEEP DECISION OPTIMIZATION 📈
 
+Tiantian(Crystal) ZHANG  & Jierui(Jerry) Zuo, contact: t.zhang8@columbia.edu
+
 # RIPLM vs General DFL Benchmarks
 
 This repository contains a reproducible benchmark project comparing RIPLM against standard decision-focused learning (DFL) baselines on:
