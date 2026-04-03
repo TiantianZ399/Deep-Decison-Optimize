@@ -1,0 +1,1 @@
+{"ranking_best":{"method":"plfo","regret_mean":0.0045057896,"regret_std":0.0005256191,"ndcg_mean":0.9952792565,"ndcg_std":0.0005701568,"runtime_mean":0.098384687,"runtime_std":0.0034368621},"structured_avg_rank":[{"method":"spo+","rank":1.3333333333},{"method":"mse","rank":1.6666666667},{"method":"plfo","rank":3.0},{"method":"riplm","rank":4.0}]}

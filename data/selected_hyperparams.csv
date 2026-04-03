@@ -1,0 +1,17 @@
+suite,task,method,lr,tau
+ranking,RankingControl,mse,0.1,0.2
+ranking,RankingControl,spo+,0.1,0.2
+ranking,RankingControl,plfo,0.1,0.5
+ranking,RankingControl,riplm,1.0,0.03
+structured,ShortestPath,mse,0.1,0.2
+structured,ShortestPath,spo+,0.03,0.2
+structured,ShortestPath,plfo,0.03,0.5
+structured,ShortestPath,riplm,0.003,0.1
+structured,Matching,mse,0.03,0.2
+structured,Matching,spo+,0.03,0.2
+structured,Matching,plfo,0.01,0.2
+structured,Matching,riplm,0.01,0.5
+structured,Knapsack,mse,0.03,0.2
+structured,Knapsack,spo+,0.01,0.2
+structured,Knapsack,plfo,0.01,0.1
+structured,Knapsack,riplm,0.01,0.5
