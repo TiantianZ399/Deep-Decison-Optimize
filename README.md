@@ -1,3 +1,5 @@
+# 🔯 DEEP DECISION OPTIMIZATION 📈
+
 # RIPLM vs General DFL Benchmarks
 
 This repository contains a reproducible benchmark project comparing RIPLM against standard decision-focused learning (DFL) baselines on:
