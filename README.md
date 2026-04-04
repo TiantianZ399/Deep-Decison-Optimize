@@ -2,105 +2,56 @@
 
 Tiantian(Crystal) ZHANG  & Jierui(Jerry) Zuo, contact: t.zhang8@columbia.edu
 
-# RIPLM vs General DFL Benchmarks
+# DDO Multilayer Repo
 
-This repository contains a reproducible benchmark project comparing RIPLM against standard decision-focused learning (DFL) baselines on:
+This local repo revision reframes the project around **Deep Decision Optimization (DDO)** rather than treating RIPLM as a generic decision-focused baseline.
 
-- a ranking-control task close to RIPLM's intended setting; and
-- exact small-scale variants of canonical DFL benchmark families (`ShortestPath`, `Matching`, and `Knapsack`).
+## What is in this repo
 
-The repository keeps the generated benchmark artifacts that support the paper-style report, so it is ready both for inspection and for rerunning the experiments locally.
+- `theory/spo_geometry.md` — standard SPO, a direct-SPO heuristic baseline, SPO+, entropic smoothing, and the bridge to RIPLM.
+- `theory/notes_after_spo_geometry.md` — the corrected framing: DDO as the umbrella, RIPLM as the simplex specification, and the move to multi-layer structured decisions.
+- `scripts/run_multilayer_path_ddo_benchmark.py` — exact synthetic benchmark on a layered shortest-path problem.
+- `reports/multilayer_path_ddo_report.md` — summary of the run.
 
-## Repository contents
+## Benchmark idea
 
-- `main.tex`: LaTeX report.
-- `scripts/run_benchmark_comparison.py`: end-to-end benchmark pipeline.
-- `data/`: committed experiment outputs, summaries, and hyperparameter selections.
-- `figures/`: committed figures used by the report.
-- `tables/`: generated LaTeX tables included by `main.tex`.
-- `requirements.txt`: Python dependencies for the benchmark script.
-- `Makefile`: convenience targets for rerunning experiments and compiling the report.
+The structured setting is a **multi-layer path decision**:
 
-## Reproducing the benchmark
+- context features generate edge costs on a layered graph,
+- the downstream decision is the shortest path,
+- evaluation uses the **standard SPO loss** (decision regret under the true costs), exact discrete path regret, and exact path accuracy,
+- and the DDO method is an **entropic mirror-descent path layer** using exact forward-backward path marginals.
 
-### 1. Create a Python environment
+For this shortest-path benchmark, the reported `path_regret` is exactly the empirical **SPO loss** whenever the shortest path under the prediction is unique. Under continuous random costs, ties occur with probability zero, so in practice `path_regret` and `spo_loss` coincide.
 
-PowerShell:
+## Methods compared
 
-```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-```
+- `mse`: two-stage regression on edge costs.
+- `spo`: direct-SPO heuristic baseline. It trains against the exact predicted path using a regret-scaled straight-through direction. This is a heuristic, not a true gradient method for the discontinuous SPO loss.
+- `spo+`: exact path-level SPO+ surrogate.
+- `ddo-md`: the structured DDO prototype in this repo, obtained by replacing the hard augmented SPO oracle with an entropically smoothed path layer.
 
-Bash:
+## Important distinction
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-```
+This repo includes both:
 
-### 2. Run the benchmark pipeline
+- **standard SPO explicitly as the main evaluation loss**, and
+- a separate **direct-SPO heuristic training baseline** labeled `spo`.
 
-```bash
-python scripts/run_benchmark_comparison.py
-```
+The training baseline is intentionally labeled heuristic because the original SPO loss is nonconvex and discontinuous; the code therefore uses a straight-through update direction rather than claiming to optimize exact SPO directly.
 
-This regenerates:
+## Why this repo exists
 
-- CSV outputs in `data/`
-- figure assets in `figures/`
-- LaTeX tables in `tables/`
+The earlier benchmark direction overreached by framing RIPLM as a general combinatorial DFL baseline. This repo fixes that by:
 
-The committed results already reflect a completed run. Re-running the script should only be done if you intentionally want to regenerate artifacts.
+1. keeping the evaluation exact and discrete,
+2. making the geometry explicit,
+3. using a structured setting where entropic mirror descent has a clean interpretation.
 
-## Compiling the LaTeX report
-
-### Local compilation
-
-Install a LaTeX distribution that provides `pdflatex` first:
-
-- Windows: MiKTeX or TeX Live
-- macOS: MacTeX
-- Linux: TeX Live
-
-Then compile with either:
+## Run
 
 ```bash
-pdflatex -interaction=nonstopmode main.tex
-pdflatex -interaction=nonstopmode main.tex
+python scripts/run_multilayer_path_ddo_benchmark.py
 ```
 
-or:
-
-```bash
-make tex
-```
-
-The report expects the committed `figures/` and `tables/` directories to be present, which they are in this repository.
-
-### Overleaf
-
-Upload the full repository contents and compile `main.tex` with pdfLaTeX.
-
-## Repository layout
-
-```text
-.
-|-- data/
-|-- figures/
-|-- scripts/
-|-- tables/
-|-- .gitignore
-|-- Makefile
-|-- README.md
-|-- main.tex
-`-- requirements.txt
-```
-
-## Notes
-
-- The structured tasks are exact small-scale variants of benchmark families from the general DFL benchmarking literature.
-- They are intentionally small enough that feasible decision sets can be enumerated exactly.
-- That makes the RIPLM adaptation precise in this project, but it is not a claim of full-scale benchmark parity.
+The script writes raw CSVs, summary tables, figures, and a markdown report to `data/`, `figures/`, and `reports/`.
