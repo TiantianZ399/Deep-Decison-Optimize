@@ -90,6 +90,8 @@ Upload the full repository contents and compile `main.tex` with pdfLaTeX.
 .
 |-- data/
 |-- figures/
+|-- experiments/
+|   `-- riplm_dfl_benchmark/
 |-- scripts/
 |-- tables/
 |-- .gitignore
@@ -104,3 +106,16 @@ Upload the full repository contents and compile `main.tex` with pdfLaTeX.
 - The structured tasks are exact small-scale variants of benchmark families from the general DFL benchmarking literature.
 - They are intentionally small enough that feasible decision sets can be enumerated exactly.
 - That makes the RIPLM adaptation precise in this project, but it is not a claim of full-scale benchmark parity.
+
+## Additional experiment
+
+An additional collaborator-style shortest-path benchmark is available under `experiments/riplm_dfl_benchmark/`.
+
+- What it is: a small enumerated-path RIPLM/DFL comparison on a layered shortest-path task.
+- Main script: `experiments/riplm_dfl_benchmark/scripts/run_benchmark_comparison.py`
+- Run it:
+
+```bash
+cd experiments/riplm_dfl_benchmark
+python scripts/run_benchmark_comparison.py --out_dir .
+```
