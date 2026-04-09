@@ -1,4 +1,4 @@
-# RIPLM / DDO-MD collaborator-style shortest-path benchmark
+# RIPLM / DDO-MD shortest-path benchmark
 
 This repository contains a small but fully reproducible decision-focused learning benchmark that mirrors the *enumerate-all-feasible-paths* adaptation discussed in the conversation.
 
