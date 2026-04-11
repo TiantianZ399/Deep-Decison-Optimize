@@ -2,6 +2,8 @@
 
 Tiantian(Crystal) ZHANG  & Jierui(Jerry) Zuo, contact: t.zhang8@columbia.edu
 
+This is the repo implementation for https://arxiv.org/abs/2509.18138, and the full paper is soon coming out.
+
 # DDO Multilayer Repo
 
 This local repo revision reframes the project around **Deep Decision Optimization (DDO)** rather than treating RIPLM as a generic decision-focused baseline.
