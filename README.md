@@ -1,8 +1,9 @@
 # 🔯 DEEP DECISION OPTIMIZATION 📈
 
-Tiantian(Crystal) ZHANG  & Jierui(Jerry) Zuo, contact: t.zhang8@columbia.edu
+Tiantian(Crystal) ZHANG Columbia University Undegrad  & Jierui(Jerry) Zuo UW incoming Phd, 
+contact: t.zhang8@columbia.edu (paper idea dicsuiion) &  zuojr22@gmail.com (repository reprodction issue
 
-This is the repo implementation for https://arxiv.org/abs/2509.18138, and the full paper is soon coming out.
+This is the repo implementation first prosposed at https://arxiv.org/abs/2509.18138, and the full paper is soon coming out.
 
 # DDO Multilayer Repo
 
@@ -57,3 +58,5 @@ python scripts/run_multilayer_path_ddo_benchmark.py
 ```
 
 The script writes raw CSVs, summary tables, figures, and a markdown report to `data/`, `figures/`, and `reports/`.
+
+
