@@ -1,7 +1,7 @@
 # 🔯 DEEP DECISION OPTIMIZATION 📈
 
 Tiantian(Crystal) ZHANG @ Columbia University Undegrad 
-contact: t.zhang8@columbia.edu (paper idea dicsuiion) 
+contact: t.zhang8@columbia.edu (paper idea dicussion) 
 
 & Jierui(Jerry) Zuo@ UW incoming Phd,Tsinghua undegrad 
 contact: zuojr22@gmail.com (repository reprodction issue discussion
