@@ -1,12 +1,14 @@
-# 🔯 DEEP DECISION OPTIMIZATION 📈
+# 🔯 DEEP DECISION OPTIMIZATION in LLM📈
 
 Tiantian(Crystal) ZHANG @ Columbia University Undegrad 
-contact: t.zhang8@columbia.edu (paper idea dicussion) 
+contact: t.zhang8@columbia.edu (mailing author) 
 
 & Jierui(Jerry) Zuo@ UW incoming Phd,Tsinghua undegrad 
-contact: zuojr22@gmail.com (repository reprodction issue discussion
+contact: zuojr22@gmail.com 
 
-🔥This is the repo implementation first prosposed at https://arxiv.org/abs/2509.18138 (short for RIPLM rank induced Plucket Luce Mirror deceny), and the full paper about DDO generalizing RIPLM is soon coming out. Here is a short tutorial about these two meyhods.
+Happy to contact and discuss ideas through email.
+
+🔥This is the repo implementation first prosposed at https://arxiv.org/abs/2509.18138 (short for RIPLM rank induced Plucket Luce Mirror deceny), and the full paper about DDO（short for Deep Decision Optimization) generalizing RIPLM is soon coming out. Here is a short tutorial about these two meyhods.
 
 
 # RIPLM vs General DFL Benchmarks
