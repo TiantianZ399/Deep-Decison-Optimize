@@ -8,7 +8,7 @@ contact: zuojr22@gmail.com
 
 Happy to contact and discuss ideas through email.
 
-🔥This is the repo implementation first prosposed at https://arxiv.org/abs/2509.18138 (short for RIPLM rank induced Plucket Luce Mirror deceny), and the full paper about DDO（short for Deep Decision Optimization) generalizing RIPLM is soon coming out. Here is a short tutorial about these two meyhods.
+🔥This is the repo implementation first prosposed at https://arxiv.org/abs/2509.18138 (short for RIPLM rank induced Plucket Luce Mirror descent), and the full paper about DDO（short for Deep Decision Optimization) generalizing RIPLM is soon coming out. Here is a short tutorial about these two meyhods.
 
 
 # RIPLM vs General DFL Benchmarks
