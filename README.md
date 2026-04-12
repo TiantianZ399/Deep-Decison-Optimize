@@ -84,3 +84,35 @@ An additional collaborator-style shortest-path benchmark is available under `exp
 cd experiments/riplm_dfl_benchmark
 python scripts/run_benchmark_comparison.py --out_dir .
 ```
+
+DDO-MD vs. SPO / SPO+ / MSE: Summary of the Enumerated-Path Benchmark
+
+Experimental setup
+	•	Task: We fully enumerate all feasible paths in a small layered shortest-path graph, and compare mse, spo, spo+, and ddo-md on the same path set.
+	•	Fairness: All methods share the same graph, the same synthetic teacher, the same linear student, the same train/validation/test split rule, the same Adam optimizer, and the same hyperparameter budget.
+	•	Graph size: 33 edges and 81 feasible paths; all paths have the same length.
+	•	Data: train = 96, val = 128, test = 512, feature dimension = 16. The synthetic teacher contains both a linear term and a sinusoidal nonlinear term, while the linear student is intentionally misspecified.
+	•	Model selection: Hyperparameters are selected on the validation set using standard path regret (equivalently, standard SPO loss). Two seeds are used for tuning, and final results are reported over five seeds.
+	•	Training budget: 8 epochs per hyperparameter configuration during tuning; 12 epochs for the final five-seed summary runs.
+
+Selected hyperparameters
+	•	ddo-md: lr = 0.1, tau = 0.05
+	•	mse: lr = 0.03, tau = 0.0
+	•	spo: lr = 0.001, tau = 0.0
+	•	spo+: lr = 0.03, tau = 0.0
+
+Five-seed summary
+
+Method	Standard SPO loss (= path regret)	Path accuracy	Edge overlap	Runtime (s)	Regret rank
+ddo-md	0.5704 ± 0.0270	0.0742 ± 0.0154	0.3524 ± 0.0217	0.0291 ± 0.0015	1
+mse	0.6255 ± 0.0322	0.0734 ± 0.0088	0.3266 ± 0.0122	0.0243 ± 0.0011	2
+spo+	0.6393 ± 0.0289	0.0586 ± 0.0135	0.3181 ± 0.0119	0.0306 ± 0.0018	3
+spo	1.0593 ± 0.0499	0.0090 ± 0.0033	0.1908 ± 0.0159	0.0290 ± 0.0009	4
+
+Main takeaways
+	•	The best mean standard SPO loss / path regret is achieved by ddo-md = 0.5704, outperforming the second-best method, mse = 0.6255.
+	•	On this collaborator-style enumerated-path benchmark, ddo-md achieves lower mean path regret than spo (0.5704 vs. 1.0593), spo+ (0.5704 vs. 0.6393), and mse (0.5704 vs. 0.6255).
+	•	In terms of path accuracy, ddo-md reaches 0.0742, compared with 0.0734 for mse. In this experiment, the regret improvement is more pronounced than the exact path-match improvement.
+	•	In terms of edge overlap, ddo-md reaches 0.3524, suggesting that even when exact path accuracy is not dramatically separated, it still more consistently places more correct edges into the final predicted path.
+	•	The direct spo row should be interpreted only as a heuristic baseline: it is not an exact gradient method, but rather a regret-scaled straight-through direction.
+
