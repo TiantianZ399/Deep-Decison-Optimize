@@ -4,7 +4,7 @@ Tiantian(Crystal) ZHANG @ Columbia University Undegrad
 contact: t.zhang8@columbia.edu (mailing author)
 
 & Jierui(Jerry) Zuo @ UW incoming PhD, Tsinghua undegrad  
-contact: zuojr22@gmail.com
+contact: zuojr22@mails.tsinghua.edu.cn
 
 Happy to contact and discuss ideas through email.
 
