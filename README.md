@@ -1,6 +1,13 @@
 # 🔯 DEEP DECISION OPTIMIZATION 📈
 
-Tiantian(Crystal) ZHANG  & Jierui(Jerry) Zuo, contact: t.zhang8@columbia.edu
+Tiantian(Crystal) ZHANG @ Columbia University Undegrad 
+contact: t.zhang8@columbia.edu (paper idea dicsuiion) 
+
+& Jierui(Jerry) Zuo@ UW incoming Phd, thu undegrad 
+contact: zuojr22@gmail.com (repository reprodction issue discussion
+
+🔥This is the repo implementation first prosposed at https://arxiv.org/abs/2509.18138 (short for RIPLM rank induced Plucket Luce Mirror deceny), and the full paper about DDO generalizing RIPLM is soon coming out. Here is a short tutorial about these two meyhods.
+
 
 # RIPLM vs General DFL Benchmarks
 
